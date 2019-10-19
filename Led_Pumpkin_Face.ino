@@ -1,6 +1,7 @@
 #include "LedControl.h"
 #include "mouth_open.h"
 #include "Mouth_Animation.h"
+#include "Expression_State.h"
 
 LedControl lc=LedControl(7,9,8,2);  // Pins: DIN,CLK,CS, # of Display connected
 
