@@ -1,60 +1,39 @@
 #include "LedControl.h"
 #include "mouth_open.h"
-#include "Mouth_Animation.h"
+//#include "Mouth_Animation.h"
+#include "Face_Animation.h"
 #include "Expression_State.h"
+//#include "Scene_Animation.h"
 
-LedControl lc=LedControl(7,9,8,2);  // Pins: DIN,CLK,CS, # of Display connected
+LedControl lc=LedControl(7,9,8,8);  // Pins: DIN,CLK,CS, # of Display connected
+
 
 unsigned long delayTime=150;  // Delay between Frames
 
-// Put values in arrays
-byte eye4[] =
+const byte eye1[] =
 {
-B00000000,
-B00000111,
-B00011111,
-B01111110,
-B11111100,
-B01111000,
-B00110000,
-B00000000
-};
-byte eye3[] =
-{
-B00000000,
-B00000000,
-B00001111,
-B01111111,
-B11111100,
-B01110000,
-B00000000,
-B00000000
-};
-byte eye2[] =
-{
-B00000000,
-B00000000,
-B00000000,
-B00111111,
-B11111000,
-B00000000,
-B00000000,
-B00000000
-};
-byte eye1[] =
-{
-B00000000,
-B00000000,
-B00000000,
-B00011111,
-B11110000,
-B00000000,
-B00000000,
-B00000000
+B11111111,
+B10000001,
+B10000001,
+B10011001,
+B10011001,
+B10000001,
+B10000001,
+B11111111
 };
 
-Mouth_Animation * ma;
+const AnimationObj anObjFace[] = {
+  {MouthOpen_Left,
+  sizeof(MouthOpen_Left)/8,
+  false}};
 
+const AnimationObj anObjEye[] = {
+  {eye1,
+  1,
+  false}};
+
+Face_Animation * fa;
+//Mouth_Animation * ma;
 void setup()
 {
   lc.shutdown(0,false);  // Wake up displays
@@ -63,36 +42,21 @@ void setup()
   lc.setIntensity(1,5);
   lc.clearDisplay(0);  // Clear Displays
   lc.clearDisplay(1);
+  lc.shutdown(2,false);  // Wake up displays
+  lc.shutdown(3,false);
+  lc.setIntensity(2,5);  // Set intensity levels
+  lc.setIntensity(3,5);
+  lc.clearDisplay(2);  // Clear Displays
+  lc.clearDisplay(3);
   //init_mouth_open();
-  ma = new Mouth_Animation(MouthOpen_Left, 7);
+  //ma = new Mouth_Animation(MouthOpen_Left, sizeof(MouthOpen_Left)/8,false);
+  fa = new Face_Animation(anObjFace, 1, anObjEye, 1, 100);
+  //sa = new Scene_Animation(MouthOpen_Left, sizeof(MouthOpen_Left)/8,false);
+  //ma->Init();
+  fa->InitAnimation();
 }
 
 
-//  Take values in Arrays and Display them
-void doMatirxAr(byte * matrixAr)
-{
-  
-  for (int i = 7; i >= 0; i--)  
-  {
-    //lc.setRow(0,i,Right_mouth[0][i]);
-    //lc.setRow(1,i,Left_mouth[0][i]);
-    lc.setRow(0,i,matrixAr[i]);
-    //lc.setRow(1,7-i,matrixAr[i]);
-  }
-}
-/*void blink(int speedms){
-// Put #1 frame on both Display
-    doMatirxAr(eye3);
-    delay(speedms);
-    doMatirxAr(eye2);
-    delay(speedms);
-    doMatirxAr(eye1);
-    delay(speedms);
-    doMatirxAr(eye2);
-    delay(speedms);
-    doMatirxAr(eye3);
-    delay(speedms);
-}*/
 void loop()
 {
   /*
@@ -101,7 +65,22 @@ void loop()
    * run animations based on scan
    * 
    */
-  delay(100);
-  ma->Update(lc, true);
-
+  //delay(100);
+  //ma->Update(lc);
+  //sa->Update(lc);
+  fa->AnimationTick(lc);
 }
+/*
+we run expressions
+expression gets an annimation
+animations are chained together
+they need mouth and eyes
+they can loop or stall
+mouth has array of animation byte arrays
+mouth can be stalled or looped
+eyes do the same*/
+
+
+
+
+  

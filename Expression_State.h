@@ -1,3 +1,9 @@
+/**************************************************
+ * Handles what expression to use from the 
+ * distance detected
+ * Defines all expressions
+ **************************************************/
+
 //expression definitions
 #define EXP_SLEEPING    3
 #define EXP_AWAKE       2
