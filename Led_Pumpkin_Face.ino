@@ -1,9 +1,9 @@
 #include "LedControl.h"
 #include "mouth_open.h"
-//#include "Mouth_Animation.h"
 #include "Face_Animation.h"
 #include "Expression_State.h"
-//#include "Scene_Animation.h"
+#include "SCENE_Setup.h"
+
 
 LedControl lc=LedControl(7,9,8,8);  // Pins: DIN,CLK,CS, # of Display connected
 
@@ -48,11 +48,9 @@ void setup()
   lc.setIntensity(3,5);
   lc.clearDisplay(2);  // Clear Displays
   lc.clearDisplay(3);
-  //init_mouth_open();
-  //ma = new Mouth_Animation(MouthOpen_Left, sizeof(MouthOpen_Left)/8,false);
+
   fa = new Face_Animation(anObjFace, 1, anObjEye, 1, 100);
-  //sa = new Scene_Animation(MouthOpen_Left, sizeof(MouthOpen_Left)/8,false);
-  //ma->Init();
+
   fa->InitAnimation();
 }
 
@@ -65,9 +63,6 @@ void loop()
    * run animations based on scan
    * 
    */
-  //delay(100);
-  //ma->Update(lc);
-  //sa->Update(lc);
   fa->AnimationTick(lc);
 }
 /*
