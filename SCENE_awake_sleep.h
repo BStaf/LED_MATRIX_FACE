@@ -1,5 +1,5 @@
 // https://xantorohara.github.io/led-matrix-editor/#3c4281999981423c|007e819999817e00|00007e99997e0000|000000ffff000000|00007e99997e0000|00007eb1b17e0000|00007e99997e0000|00007e8d8d7e0000|00007e99997e0000|000000ffff000000
-const byte SCENE_awake-sleep_Mouth[] = {
+const byte SCENE_awakeSleep_Mouth[] = {
   B00000111,
   B00001000,
   B00010000,
@@ -56,7 +56,7 @@ const byte SCENE_awake-sleep_Mouth[] = {
 };
 
 
-const byte SCENE_awake-sleep_Eyes[] = {
+const byte SCENE_awakeSleep_Eyes[] = {
   B00111100,
   B01000010,
   B10000001,

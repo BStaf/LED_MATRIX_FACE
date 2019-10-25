@@ -1,4 +1,4 @@
-const byte SCENE_jack-awake_Mouth[] = {
+const byte SCENE_jackAwake_Mouth[] = {
   B11110000,
   B10010000,
   B10001011,
@@ -36,7 +36,7 @@ const byte SCENE_jack-awake_Mouth[] = {
   B00000000
 };
 
-const byte SCENE_jack-awake_Eyes[] = {
+const byte SCENE_jackAwake_Eyes[] = {
   B00011000,
   B00111100,
   B00100100,

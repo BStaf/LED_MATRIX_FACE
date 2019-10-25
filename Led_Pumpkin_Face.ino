@@ -1,5 +1,4 @@
 #include "LedControl.h"
-#include "mouth_open.h"
 #include "Face_Animation.h"
 #include "Expression_State.h"
 #include "SCENE_Setup.h"
@@ -10,29 +9,7 @@ LedControl lc=LedControl(7,9,8,8);  // Pins: DIN,CLK,CS, # of Display connected
 
 unsigned long delayTime=150;  // Delay between Frames
 
-const byte eye1[] =
-{
-B11111111,
-B10000001,
-B10000001,
-B10011001,
-B10011001,
-B10000001,
-B10000001,
-B11111111
-};
-
-const AnimationObj anObjFace[] = {
-  {MouthOpen_Left,
-  sizeof(MouthOpen_Left)/8,
-  false}};
-
-const AnimationObj anObjEye[] = {
-  {eye1,
-  1,
-  false}};
-
-Face_Animation * fa;
+//Face_Animation * fa;
 //Mouth_Animation * ma;
 void setup()
 {
@@ -49,11 +26,10 @@ void setup()
   lc.clearDisplay(2);  // Clear Displays
   lc.clearDisplay(3);
 
-  fa = new Face_Animation(anObjFace, 1, anObjEye, 1, 100);
+//  fa = new Face_Animation(anObjFace, 1, anObjEye, 1, 100);
 
-  fa->InitAnimation();
+//  fa->InitAnimation();
 }
-
 
 void loop()
 {
@@ -63,7 +39,7 @@ void loop()
    * run animations based on scan
    * 
    */
-  fa->AnimationTick(lc);
+//  fa->AnimationTick(lc);
 }
 /*
 we run expressions
@@ -72,7 +48,7 @@ animations are chained together
 they need mouth and eyes
 they can loop or stall
 mouth has array of animation byte arrays
-mouth can be stalled or looped
+mouth can be stalled or //looped
 eyes do the same*/
 
 

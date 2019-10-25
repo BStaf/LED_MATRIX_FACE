@@ -1,5 +1,5 @@
 //https://xantorohara.github.io/led-matrix-editor/#00f80404040808f0|00f008040402c23c|00f8040402e1110e|00f8040231d1090f
-const byte SCENE_awake-jack_Mouth[] = {
+const byte SCENE_awakeJack_Mouth[] = {
   B00001111,
   B00010000,
   B00010000,
@@ -38,7 +38,7 @@ const byte SCENE_awake-jack_Mouth[] = {
 };
 
 //https://xantorohara.github.io/led-matrix-editor/#007e8181995a423c|00ff8181425a3c3c|00ff814242243c18
-const byte SCENE_awake-jack_Eyes[] = {
+const byte SCENE_awakeJack_Eyes[] = {
   B00111100,
   B01000010,
   B01011010,

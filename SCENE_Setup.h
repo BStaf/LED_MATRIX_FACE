@@ -1,16 +1,16 @@
 #include "SCENE_sleeping.h"
 #include "SCENE_awake.h"
 #include "SCENE_jack.h"
-#include "SCENE_sleep-awake.h"
-#include "SCENE_awake-sleep.h"
-#include "SCENE_jack-awake.h"
-#include "SCENE_awake-jack.h"
+#include "SCENE_sleep_awake.h"
+#include "SCENE_awake_sleep.h"
+#include "SCENE_jack_awake.h"
+#include "SCENE_awake_jack.h"
 
 //Sleeping
 const AnimationObj anObj_Sleeping_Mouth[] = {
   {SCENE_Sleeping_Mouth,//byte array
   sizeof(SCENE_Sleeping_Mouth)/8,//count
-  true};//loo
+  true}};//loo
 const AnimationObj anObj_Sleeping_Eyes[] = {
   {SCENE_Sleeping_Eyes,//byte array
   sizeof(SCENE_Sleeping_Eyes)/8,//count
@@ -20,7 +20,7 @@ const AnimationObj anObj_Sleeping_Eyes[] = {
 const AnimationObj anObj_Awake_Mouth[] = {
   {SCENE_Awake_Mouth,//byte array
   sizeof(SCENE_Awake_Mouth)/8,//count
-  true};//loop
+  true}};//loop
 
 const AnimationObj anObj_Awake_Eyes[] = {
   {SCENE_Awake_Eyes,//byte array
@@ -31,48 +31,48 @@ const AnimationObj anObj_Awake_Eyes[] = {
 const AnimationObj anObj_Jack_Mouth[] = {
   {SCENE_Jack_Mouth,//byte array
   sizeof(SCENE_Jack_Mouth)/8,//count
-  true};//loop
+  true}};//loop
 const AnimationObj anObj_Jack_Eyes[] = {
   {SCENE_Jack_Eyes,//byte array
   sizeof(SCENE_Jack_Eyes)/8,//count
   true}};//loop
 
-//sleep-awake
-const AnimationObj anObj_sleep-awake_Mouth[] = {
-  {SCENE_sleep-awake_Mouth,//byte array
-  sizeof(SCENE_sleep-awake_Mouth)/8,//count
-  false};//loop
-const AnimationObj anObj_sleep-awake_Eyes[] = {
-  {SCENE_sleep-awake_Eyes,//byte array
-  sizeof(SCENE_sleep-awake_Eyes)/8,//count
+//sleepAwake
+const AnimationObj anObj_sleepAwake_Mouth[] = {
+  {SCENE_sleepAwake_Mouth,//byte array
+  sizeof(SCENE_sleepAwake_Mouth)/8,//count
+  false}};//loop
+const AnimationObj anObj_sleepAwake_Eyes[] = {
+  {SCENE_sleepAwake_Eyes,//byte array
+  sizeof(SCENE_sleepAwake_Eyes)/8,//count
   false}};//loop
 
-//awake-sleep
-const AnimationObj anObj_awake-sleep_Mouth[] = {
-  {SCENE_awake-sleep_Mouth,//byte array
-  sizeof(SCENE_awake-sleep_Mouth)/8,//count
-  false};//loop
-const AnimationObj anObj_awake-sleep_Eyes[] = {
-  {SCENE_awake-sleep_Eyes,//byte array
-  sizeof(SCENE_awake-sleep_Eyes)/8,//count
+//awakeSleep
+const AnimationObj anObj_awakeSleep_Mouth[] = {
+  {SCENE_awakeSleep_Mouth,//byte array
+  sizeof(SCENE_awakeSleep_Mouth)/8,//count
+  false}};//loop
+const AnimationObj anObj_awakeSleep_Eyes[] = {
+  {SCENE_awakeSleep_Eyes,//byte array
+  sizeof(SCENE_awakeSleep_Eyes)/8,//count
   false}};//loop
 
-//awake-jack
-const AnimationObj anObj_awake-jack_Mouth[] = {
-  {SCENE_awake-jack_Mouth,//byte array
-  sizeof(SCENE_awake-jack_Mouth)/8,//count
-  false};//loop
-const AnimationObj anObj_awake-jack_Eyes[] = {
-  {SCENE_awake-jack_Eyes,//byte array
-  sizeof(SCENE_awake-jack_Eyes)/8,//count
+//awakeJack
+const AnimationObj anObj_awakeJack_Mouth[] = {
+  {SCENE_awakeJack_Mouth,//byte array
+  sizeof(SCENE_awakeJack_Mouth)/8,//count
+  false}};//loop
+const AnimationObj anObj_awakeJack_Eyes[] = {
+  {SCENE_awakeJack_Eyes,//byte array
+  sizeof(SCENE_awakeJack_Eyes)/8,//count
   false}};//loop
 
-//jack-awake
-const AnimationObj anObj_jack-awake_Mouth[] = {
-  {SCENE_jack-awake_Mouth,//byte array
-  sizeof(SCENE_jack-awake_Mouth)/8,//count
-  false};//loop
-const AnimationObj anObj_jack-awake_Eyes[] = {
-  {SCENE_jack-awake_Eyes,//byte array
-  sizeof(SCENE_jack-awake_Eyes)/8,//count
+//jackAwake
+const AnimationObj anObj_jackAwake_Mouth[] = {
+  {SCENE_jackAwake_Mouth,//byte array
+  sizeof(SCENE_jackAwake_Mouth)/8,//count
+  false}};//loop
+const AnimationObj anObj_jackAwake_Eyes[] = {
+  {SCENE_jackAwake_Eyes,//byte array
+  sizeof(SCENE_jackAwake_Eyes)/8,//count
   false}};//loop
