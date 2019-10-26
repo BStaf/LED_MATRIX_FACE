@@ -11,14 +11,12 @@ class Mouth_Animation {
     //byte * GetScene();
     bool Update(LedControl lc); //returns true when finished
     void Init();
+    bool IsComplete;
 };
 
 Mouth_Animation::Mouth_Animation(byte * LeftMouthScenes, int SceneCnt, bool IsLoop){
   byte * p, * rightScenes;
-//  _loop = IsLoop;
-//  _sceneCnt = SceneCnt;
-//  _leftSide = LeftSide;
-//  _currentScene = 0;
+
   rightScenes = malloc(sizeof(byte) * 8 * SceneCnt);
   //right side is the reverse of the left side
   for (int i=0; i<SceneCnt * 8; i++){
@@ -33,12 +31,14 @@ Mouth_Animation::Mouth_Animation(byte * LeftMouthScenes, int SceneCnt, bool IsLo
 void Mouth_Animation::Init(){
   _rightScenes->Init(0);
   _leftScenes->Init(1);
+  IsComplete = false;
 }
 
 bool Mouth_Animation::Update(LedControl lc){
+  if (_leftScenes->IsComplete)
+    IsComplete = true;
   _rightScenes->Update(lc);
   return _leftScenes->Update(lc);
-
 }
 
 byte Mouth_Animation::reverseBits(byte n){ 

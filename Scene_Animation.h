@@ -18,6 +18,7 @@ class Scene_Animation {
     Scene_Animation(byte * Scenes, int SceneCnt, bool IsLoop);
     bool Update(LedControl lc); //returns true when finished
     void Init(byte matrixNum);
+    bool IsComplete;
 };
 
 Scene_Animation::Scene_Animation(byte * Scenes, int SceneCnt, bool IsLoop){
@@ -30,6 +31,7 @@ Scene_Animation::Scene_Animation(byte * Scenes, int SceneCnt, bool IsLoop){
 void Scene_Animation::Init(byte matrixNum){
   _currentScene = 0;
   _matrixNum = matrixNum;
+  IsComplete = false;
 }
 
 bool Scene_Animation::Update(LedControl lc){
@@ -43,6 +45,7 @@ bool Scene_Animation::setNextScene(){
   if (_currentScene < _sceneCnt-1)
     _currentScene++;
   else{//animation done. if looped then keep going forever
+    IsComplete = true;
     if (_loop)
       _currentScene = 0;
     else // if not loop, return finished

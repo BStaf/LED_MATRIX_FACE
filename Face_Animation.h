@@ -10,7 +10,9 @@ class Face_Animation {
     int _eyeAnimationCnt;
     int _speed;
     unsigned long _lastTime;
-
+    bool finishedMouthAn;
+    bool finishedEyesAn;
+    
     byte _mouthSceneStep;
     byte _eyesSceneStep;
 
@@ -20,6 +22,7 @@ class Face_Animation {
     Face_Animation(AnimationObj * MouthAnimations, int MouthAnimationCnt, AnimationObj * EyeAnimations, int EyeAnimationCnt, int Speed);
     void InitAnimation();
     void AnimationTick(LedControl lc);
+    bool IsComplete;
 };
 Face_Animation::Face_Animation(AnimationObj * MouthLeftAnimations, int MouthAnimationCnt, AnimationObj * EyeAnimations, int EyeAnimationCnt, int Speed){
   _speed = Speed;
@@ -43,6 +46,9 @@ void Face_Animation::InitAnimation(){
   _lastTime = 0;
   _mouthSceneStep = 0;
   _eyesSceneStep = 0;
+  IsComplete = false;
+  finishedMouthAn = false;
+  finishedEyesAn = false;
   InitScenes();
 }
 
@@ -53,7 +59,11 @@ void Face_Animation::AnimationTick(LedControl lc){
       if (_mouthSceneStep < _mouthAnimationCnt-1){
         _mouthSceneStep++;
         _mouthAnimations[_mouthSceneStep]->Init();
-      }
+      }  
+    }
+    else{
+      if (_mouthAnimations[_mouthSceneStep]->IsComplete)
+        finishedMouthAn = true;
     }
     _eyeAnimationsLeft[_eyesSceneStep]->Update(lc);
     if (_eyeAnimationsRight[_eyesSceneStep]->Update(lc)){
@@ -63,6 +73,12 @@ void Face_Animation::AnimationTick(LedControl lc){
         _eyeAnimationsRight[_eyesSceneStep]->Init(2);
       }
     }
+    else{
+      if (_eyeAnimationsRight[_eyesSceneStep]->IsComplete)
+        finishedEyesAn = true;
+      }
+    if (finishedMouthAn && finishedEyesAn)
+      IsComplete = true;    
   }
 }
 void Face_Animation::InitScenes(){
